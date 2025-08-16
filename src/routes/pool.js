@@ -1,9 +1,9 @@
 const express = require('express');
-const { BlockchainService } = require('../utils/blockchain');
+const { createBlockchainService } = require("../utils/blockchain-factory");
 const { validateEthereumAddress, validateAmount } = require('../utils/validation');
 
 const router = express.Router();
-const blockchainService = new BlockchainService();
+const blockchainService = createBlockchainService();
 
 router.get('/status', async (req, res, next) => {
   try {

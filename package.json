@@ -7,7 +7,20 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "mocha test/**/*.test.js",
-    "test:watch": "mocha test/**/*.test.js --watch"
+    "test:watch": "mocha test/**/*.test.js --watch",
+    "setup:testnet": "node scripts/setup-testnet.js",
+    "setup:pi": "node scripts/setup-pi-testing.js",
+    "pi:start": "./start-pi-testing.sh",
+    "pi:test": "./test-pi.sh",
+    "env:switch": "node scripts/env-switcher.js",
+    "env:status": "node scripts/env-switcher.js status",
+    "env:mock": "node scripts/env-switcher.js mock",
+    "env:local": "node scripts/env-switcher.js local",
+    "env:testnet": "node scripts/env-switcher.js testnet",
+    "env:mainnet": "node scripts/env-switcher.js mainnet",
+    "deploy:test": "node scripts/deployment-test-plan.js",
+    "blockchain:real": "USE_REAL_BLOCKCHAIN=true npm start",
+    "blockchain:mock": "USE_REAL_BLOCKCHAIN=false npm start"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -23,7 +36,9 @@
     "chai": "^4.3.8",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "hardhat": "^2.17.1",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.2"
   },
   "author": "Nicolas Fodor",
   "license": "MIT",

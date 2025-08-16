@@ -1,10 +1,10 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
-const { BlockchainService } = require('../utils/blockchain');
+const { createBlockchainService } = require('../utils/blockchain-factory');
 const { escrowInitiateSchema, escrowActionSchema } = require('../utils/validation');
 
 const router = express.Router();
-const blockchainService = new BlockchainService();
+const blockchainService = createBlockchainService();
 
 router.post('/initiate', async (req, res, next) => {
   try {
