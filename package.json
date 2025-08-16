@@ -1,0 +1,33 @@
+{
+  "name": "rideshare-bridge-api",
+  "version": "0.1.0",
+  "description": "Standalone blockchain bridge API for rideshare payments, escrow, and referrals",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "mocha test/**/*.test.js",
+    "test:watch": "mocha test/**/*.test.js --watch"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "ethers": "^6.7.1",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "author": "Nicolas Fodor",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

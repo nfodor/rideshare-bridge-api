@@ -1,0 +1,151 @@
+
+openapi: 3.0.3
+info:
+  title: Rideshare Blockchain Bridge API
+  description: API for managing blockchain-based escrow, payments, referrals, and insurance contributions for a rideshare platform.
+  version: 0.2.0
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+paths:
+  /api/escrow/initiate:
+    post:
+      summary: Initiate a new ride escrow and optional insurance contribution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [rideId, riderWallet, driverWallet, amount]
+              properties:
+                rideId:
+                  type: string
+                riderWallet:
+                  type: string
+                driverWallet:
+                  type: string
+                amount:
+                  type: string
+                currency:
+                  type: string
+                  default: ETH
+                insuranceContribution:
+                  type: string
+                referrerId:
+                  type: string
+      responses:
+        '201':
+          description: Escrow initiated
+
+  /api/escrow/start:
+    post:
+      summary: Mark a ride as started and lock escrow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [rideId]
+              properties:
+                rideId:
+                  type: string
+      responses:
+        '200':
+          description: Escrow locked
+
+  /api/escrow/complete:
+    post:
+      summary: Complete a ride and release funds to driver
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [rideId]
+              properties:
+                rideId:
+                  type: string
+      responses:
+        '200':
+          description: Escrow released
+
+  /api/escrow/cancel:
+    post:
+      summary: Cancel a ride and handle refunds
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [rideId, cancellationType]
+              properties:
+                rideId:
+                  type: string
+                cancellationType:
+                  type: string
+                  enum: [rider, driver, platform]
+      responses:
+        '200':
+          description: Escrow refunded
+
+  /api/escrow/lostitem:
+    post:
+      summary: Pay a driver for returning a lost item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [rideId, amount]
+              properties:
+                rideId:
+                  type: string
+                amount:
+                  type: string
+      responses:
+        '200':
+          description: Lost item fee paid
+
+  /api/invite/send:
+    post:
+      summary: Send an invitation to a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [inviterId, email]
+              properties:
+                inviterId:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Invitation sent
+
+  /api/invite/accept:
+    post:
+      summary: Accept an invitation and link wallet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [inviteToken, wallet]
+              properties:
+                inviteToken:
+                  type: string
+                wallet:
+                  type: string
+      responses:
+        '200':
+          description: Invitation accepted
