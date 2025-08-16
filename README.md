@@ -414,4 +414,3 @@ MIT License – free to use, fork, and build.
 ## 💬 Questions?
 
 Start a GitHub Discussion or open an Issue.
-EOF < /dev/null
