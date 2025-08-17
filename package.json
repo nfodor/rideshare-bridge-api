@@ -30,15 +30,15 @@
     "helmet": "^7.0.0",
     "joi": "^17.9.2",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "chai": "^4.3.8",
+    "chai-http": "^5.1.2",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
-    "supertest": "^6.3.3",
-    "hardhat": "^2.17.1",
-    "@nomicfoundation/hardhat-toolbox": "^3.0.2"
+    "supertest": "^6.3.3"
   },
   "author": "Nicolas Fodor",
   "license": "MIT",

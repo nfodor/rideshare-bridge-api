@@ -7,6 +7,12 @@ require('dotenv').config();
 const escrowRoutes = require('./routes/escrow');
 const referralRoutes = require('./routes/referral');
 const poolRoutes = require('./routes/pool');
+const insuranceRoutes = require('./routes/insurance');
+const claimsRoutes = require('./routes/claims');
+const juryRoutes = require('./routes/jury');
+const reviewRoutes = require('./routes/review');
+const payoutRoutes = require('./routes/payouts');
+const validatorRoutes = require('./routes/validators');
 const { errorHandler } = require('./middleware/errorHandler');
 
 const app = express();
@@ -21,13 +27,17 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.json({
     name: 'Rideshare Bridge API',
-    version: '0.1.0',
-    description: 'Blockchain bridge API for rideshare payments, escrow, and referrals',
+    version: '0.3.0',
+    description: 'Blockchain bridge API for rideshare payments, escrow, referrals, and comprehensive insurance',
     status: 'running',
     endpoints: {
       escrow: '/api/escrow',
       referral: '/api/referral',
-      pool: '/api/pool'
+      pool: '/api/pool',
+      insurance: '/api/insurance',
+      claims: '/api/claims',
+      jury: '/api/jury',
+      review: '/api/review'
     }
   });
 });
@@ -43,6 +53,12 @@ app.get('/health', (req, res) => {
 app.use('/api/escrow', escrowRoutes);
 app.use('/api/referral', referralRoutes);
 app.use('/api/pool', poolRoutes);
+app.use('/api/insurance', insuranceRoutes);
+app.use('/api/claims', claimsRoutes);
+app.use('/api/jury', juryRoutes);
+app.use('/api/review', reviewRoutes);
+app.use('/api/payouts', payoutRoutes);
+app.use('/api/validators', validatorRoutes);
 
 app.use('*', (req, res) => {
   res.status(404).json({
