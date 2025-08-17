@@ -84,9 +84,14 @@ This API is designed as a **standalone service** that can be integrated with any
 
 #### **2. Comprehensive Ride Insurance System** 🛡️ **[NEW v0.3]**
 - **Purpose**: Advanced insurance coverage with AI fraud detection and community validation
-- **Features**:
+- **Coverage**: Up to $1,000,000 per incident with dynamic premium pricing (1-3% of ride cost)
+- **Processing**: AI-powered claims with 1-48 hour processing time
+- **Validation**: Community-driven peer review with economic incentives
+
+**📚 [Complete Insurance Documentation →](INSURANCE.md)**
+
+**Key Features**:
   - **Dynamic Premium Calculation**: Risk-based pricing using driver history, safety scores, and real-time factors
-  - **Up to $1M Coverage**: Comprehensive protection for accidents, theft, property damage, and medical expenses
   - **AI-Powered Fraud Detection**: 15+ risk factors including document analysis, behavioral patterns, and external data validation
   - **Community Validation**: Driver jury system with reputation-based eligibility and consensus voting
   - **Automated Payouts**: Multi-trigger execution (AI approval, community consensus, manual override, emergency protocols)
@@ -181,6 +186,8 @@ const rideData = {
 ## 🛡️ How the Insurance System Works
 
 The insurance system provides comprehensive ride protection through a multi-layered approach combining AI analysis, community validation, and automated payouts.
+
+> 📚 **For comprehensive details**: See [Complete Insurance Documentation](INSURANCE.md) covering high-level overview, expert insurance perspective, and technical implementation.
 
 ### 🔄 Insurance Workflow
 
